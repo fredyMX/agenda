@@ -4,18 +4,15 @@ import {
     signInWithEmailAndPassword, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
-    getFirestore, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot, serverTimestamp
+    getFirestore, collection, addDoc, doc, setDoc, updateDoc, deleteDoc, onSnapshot, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // 1) PEGA AQUÍ TU CONFIGURACIÓN (Firebase Console > Configuración del proyecto > Tus apps > Web)
 const firebaseConfig = {
-    apiKey: "AIzaSyCiXn6-g_yDTOZVbMbK-MCh0h6uZ86nDKc",
-    authDomain: "equipo1-e6430.firebaseapp.com",
-    projectId: "equipo1-e6430",
-    storageBucket: "equipo1-e6430.firebasestorage.app",
-    messagingSenderId: "567562298832",
-    appId: "1:567562298832:web:bf5ec3bfbf1fe2db3bc5d5",
-    measurementId: "G-J982117ZP8"
+    apiKey: "TU_API_KEY",
+    authDomain: "TU_PROYECTO.firebaseapp.com",
+    projectId: "TU_PROYECTO",
+    appId: "TU_APP_ID"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -82,6 +79,14 @@ onAuthStateChanged(auth, (user) => {
     $("#app").hidden = false;
     $("#hello").textContent = user.email;
     $("#date").value = iso(new Date());
+
+    // Documento del usuario: aparece en Firestore como users/{uid} con sus datos
+    setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        email: user.email,
+        createdAt: user.metadata.creationTime,
+        lastLogin: serverTimestamp()
+    }, { merge: true }).catch(() => { });
 
     // Cada usuario guarda sus eventos en users/{uid}/events
     eventsRef = collection(db, "users", user.uid, "events");
