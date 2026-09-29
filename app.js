@@ -9,10 +9,13 @@ import {
 
 // 1) PEGA AQUÍ TU CONFIGURACIÓN (Firebase Console > Configuración del proyecto > Tus apps > Web)
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_PROYECTO.firebaseapp.com",
-    projectId: "TU_PROYECTO",
-    appId: "TU_APP_ID"
+    apiKey: "AIzaSyCiXn6-g_yDTOZVbMbK-MCh0h6uZ86nDKc",
+    authDomain: "equipo1-e6430.firebaseapp.com",
+    projectId: "equipo1-e6430",
+    storageBucket: "equipo1-e6430.firebasestorage.app",
+    messagingSenderId: "567562298832",
+    appId: "1:567562298832:web:bf5ec3bfbf1fe2db3bc5d5",
+    measurementId: "G-J982117ZP8"
 };
 
 const app = initializeApp(firebaseConfig);
