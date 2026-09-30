@@ -1,32 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-    --bg: #eef0ff;
+    --bg: #f4f7f9;
+    /* Fondo general claro */
     --card: #ffffff;
-    --ink: #1e1b4b;
-    --mute: #6b6f9a;
-    --line: #dcdff7;
-    --primary: #4338ca;
+    /* Tarjetas blancas */
+    --ink: #1e293b;
+    /* Texto oscuro azulado */
+    --mute: #64748b;
+    /* Texto secundario */
+    --line: #e2e8f0;
+    /* Bordes suaves */
+    --primary: #2563eb;
+    /* Azul principal */
     --on: #ffffff;
-    --accent: #ec4899;
-    --field: #f6f7ff;
-    --bad: #c2185b;
-    --radius: 1.25rem;
-    --shadow: 0 8px 24px rgba(67, 56, 202, .10);
+    /* Texto sobre el color principal */
+    --accent: #0ea5e9;
+    /* Botón de guardar (Azul cian) */
+    --field: #f8fafc;
+    /* Fondo de inputs */
+    --bad: #ef4444;
+    /* Errores / Eliminar */
+    --radius: 0.5rem;
+    /* Bordes menos redondeados */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #12102b;
-        --card: #1c1a3f;
-        --ink: #ecebff;
-        --mute: #a3a6d6;
-        --line: #322f6b;
-        --primary: #8b83ff;
-        --on: #12102b;
-        --accent: #ff7ac0;
-        --field: #15132f;
-        --bad: #ff8fb8;
+        --bg: #0f172a;
+        /* Fondo oscuro azulado */
+        --card: #1e293b;
+        /* Tarjetas oscuras */
+        --ink: #f8fafc;
+        /* Texto claro */
+        --mute: #94a3b8;
+        /* Texto secundario */
+        --line: #334155;
+        /* Bordes */
+        --primary: #3b82f6;
+        /* Azul brillante */
+        --on: #ffffff;
+        --accent: #0284c7;
+        /* Botón guardar */
+        --field: #0f172a;
+        /* Fondo inputs */
+        --bad: #f87171;
         --shadow: none;
     }
 }
@@ -152,7 +171,8 @@ textarea {
     color: var(--ink);
     background: var(--field);
     border: 2px solid transparent;
-    border-radius: .8rem;
+    border-radius: calc(var(--radius) - 0.2rem);
+    /* Ajuste sutil al nuevo radio */
     padding: .65rem .85rem;
     min-height: 2.9rem;
 }
@@ -257,7 +277,7 @@ button.main {
     gap: .8rem;
     align-items: start;
     background: var(--field);
-    border-radius: 1rem;
+    border-radius: var(--radius);
     padding: .85rem 1rem;
     margin-bottom: .5rem;
 }
